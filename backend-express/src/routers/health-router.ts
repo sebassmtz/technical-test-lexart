@@ -1,11 +1,10 @@
 import { Router } from "express"
-import { HealthController } from "./health-controller"
+import { HealthController } from "../controllers/health-controller"
 
 export default function productRouter(router: Router): void {
-
   const healthController = new HealthController()
 
-   /**
+  /**
    *@openapi
    * components:
    *  schemas:
@@ -17,9 +16,7 @@ export default function productRouter(router: Router): void {
    *      message: OK
    */
 
-
-
-   /**
+  /**
    * @openapi
    * /health:
    *  get:
@@ -40,8 +37,5 @@ export default function productRouter(router: Router): void {
    *            schema:
    *              $ref: '#/components/schemas/BadRequest'
    */
-  router.get(
-    "/health",
-    healthController.handle.bind(healthController)
-  )
+  router.get("/health", healthController.handle.bind(healthController))
 }

@@ -6,27 +6,27 @@ const options: swaggerJsdoc.Options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "DrEnvio Challenge Backend API",
+      title: "Challenge Backend API",
       version: "1.0.0",
-      description: 'API using Express for a sneakers store',
+      description: 'API using Express for a cellphone store',
     },
-    // components: {
-    //   securitySchemes: {
-    //     bearerAuth: {
-    //       type: "http",
-    //       scheme: "bearer",
-    //       bearerFormat: "JWT",
-    //     },
-    //   },
-    // },
-    // security: [
-    //   {
-    //     bearerAuth: [],
-    //   },
-    // ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+      },
+    },
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
   },
   // Configurar dependiendo de donde esten los routers
-  apis: ["./src/health/*.ts"],
+  apis: ["./src/routers/*.ts"],
 }
 
 const swaggerSpec = swaggerJsdoc(options)
