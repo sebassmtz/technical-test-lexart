@@ -23,6 +23,7 @@ export default function productRouter(router: Router): void {
    *     tags:
    *     - Health
    *     summary: Health`s endpoint
+   *     security: []
    *     responses:
    *       200:
    *        description: success

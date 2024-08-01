@@ -2,6 +2,7 @@ import { Router } from "express"
 
 import healthRouter from "./health-router"
 import productRouter from "./product-router"
+import authRouter from "./auth-router"
 
 const router = Router()
 
@@ -30,6 +31,7 @@ export default function (app: Router): Router {
    *      message: Not found
    */
   healthRouter(app)
+  authRouter(app)
   productRouter(app)
 
   app.get("/", (req, res) => {

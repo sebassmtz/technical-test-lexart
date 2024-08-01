@@ -38,12 +38,11 @@ export const createProduct = async (
   res: Response
 ): Promise<Response> => {
   try {
-    const { name, price, quantity } = req.body
+    const { name, price, quantity, } = req.body
     const product = await Product.create({
       name,
       price,
       quantity,
-      isAvailable: true,
     })
     return res.status(201).json(product)
   } catch (error) {

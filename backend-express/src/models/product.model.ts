@@ -15,7 +15,6 @@ export class Product extends Model<
   declare name: string
   declare price: string
   declare quantity: string
-  declare isAvailable: boolean
 }
 
 Product.init(
@@ -30,17 +29,12 @@ Product.init(
       allowNull: false,
     },
     price: {
-      type: DataTypes.STRING,
+      type: DataTypes.NUMBER,
       allowNull: false,
     },
     quantity: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    },
-    isAvailable: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: true,
     },
   },
   {

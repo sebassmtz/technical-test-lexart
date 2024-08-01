@@ -6,6 +6,7 @@ import {
   getProducts,
   updateProduct,
 } from "../controllers/product-controller"
+import { authRequired } from "../middlewares/ValidateToken"
 
 export default function productRouter(router: Router): void {
   /**
@@ -47,6 +48,7 @@ export default function productRouter(router: Router): void {
    *     tags:
    *     - Product
    *     summary: Get All products
+   *     security: []
    *     responses:
    *       200:
    *        description: success
@@ -92,7 +94,7 @@ export default function productRouter(router: Router): void {
    *            schema:
    *              $ref: '#/components/schemas/BadRequest'
    */
-  router.post("/product", createProduct)
+  router.post("/product", authRequired, createProduct)
 
   /**
    * @openapi
@@ -128,7 +130,7 @@ export default function productRouter(router: Router): void {
    *            schema:
    *              $ref: '#/components/schemas/NotFound'
    */
-  router.get("/product/:id", getProductById)
+  router.get("/product/:id", authRequired, getProductById)
 
   /**
    * @openapi
@@ -164,7 +166,7 @@ export default function productRouter(router: Router): void {
    *            schema:
    *              $ref: '#/components/schemas/NotFound'
    */
-  router.delete("/product/:id", deleteProduct)
+  router.delete("/product/:id", authRequired, deleteProduct)
 
-  router.patch("/product/:id", updateProduct)
+  router.patch("/product/:id", authRequired, updateProduct)
 }
