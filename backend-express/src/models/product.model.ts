@@ -13,8 +13,8 @@ export class Product extends Model<
 > {
   declare id: CreationOptional<number>
   declare name: string
-  declare price: string
-  declare quantity: string
+  declare price: number
+  declare quantity: number
 }
 
 Product.init(
@@ -29,7 +29,7 @@ Product.init(
       allowNull: false,
     },
     price: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: false,
     },
     quantity: {

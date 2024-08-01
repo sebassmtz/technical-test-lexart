@@ -89,3 +89,42 @@ export const deleteProduct = async (
     return res.status(500).json({ message: (error as Error).message })
   }
 }
+
+export const deleteAllProducts = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  try {
+    await Product.destroy({ where: {} })
+    return res.status(204).json({
+      message: "All products deleted",
+    })
+  } catch (error) {
+    console.error(error)
+    return res.status(500).json({ message: (error as Error).message })
+  }
+}
+
+
+
+
+export const loadProducts = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  try {
+    for (let i = 0; i < 50; i++) {
+      await Product.create({
+        name: `Product ${i}`,
+        price: Math.floor(Math.random() * 100),
+        quantity: Math.floor(Math.random() * 100),
+      })
+    }
+    return res.status(201).json({
+      message: "Products loaded",
+    })
+  } catch (error) {
+    console.error(error)
+    return res.status(500).json({ message: (error as Error).message })
+  }
+}
