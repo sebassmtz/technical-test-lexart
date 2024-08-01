@@ -5,9 +5,10 @@
     "target": "ES2021",
     "esModuleInterop": true,
     "strict": true,
-    "outDir": "dist",
+    "outDir": "./dist",
     "sourceMap": true,
     "inlineSources": true
   },
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }

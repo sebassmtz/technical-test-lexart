@@ -11,8 +11,7 @@
     "test:unit": "jest",
     "lint": "eslint --ignore-path .gitignore . --ext .js,.ts",
     "lint:fix": "npm run lint -- --fix",
-    "build": "npm run build:clean && npm run build:tsc",
-    "build:tsc": "tsc -p tsconfig.prod.json"
+    "build": "tsc"
   },
   "author": "Sebastian Martinez",
   "license": "MIT",
