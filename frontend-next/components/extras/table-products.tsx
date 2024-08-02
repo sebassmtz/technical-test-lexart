@@ -18,7 +18,7 @@ import {
 import { AlertModal } from "@/components/modal/alert-modal";
 import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-// import { deleteProduct } from "@/actions/products";
+import { deleteProduct } from "@/actions/products";
 import { toast } from "sonner";
 
 interface TablePreviewProps {
@@ -50,23 +50,20 @@ export function TablePreviewProducts({ data, showActions }: TablePreviewProps) {
     setIdProduct(id);
   };
 
-  const availability = (availability: boolean) => {
-    return availability ? "Disponible" : "No disponible";
-  };
 
-  // const deleteProductMutation = useMutation({
-  //   mutationFn: deleteProduct,
-  //   onSuccess: () => {
-  //     queryClient.invalidateQueries({ queryKey: ["products"] });
-  //     toast.success("Producto eliminado correctamente.");
-  //     setOpen(false);
-  //     setLoading(false);
-  //   }
-  // })
+  const deleteProductMutation = useMutation({
+    mutationFn: deleteProduct,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["products"] });
+      toast.success("Deleted product successfully.");
+      setOpen(false);
+      setLoading(false);
+    }
+  })
 
   const onDelete = () => {
     setLoading(true);
-    // deleteProductMutation.mutate(idProduct);
+    deleteProductMutation.mutate(idProduct);
   };
 
   return (
@@ -85,7 +82,7 @@ export function TablePreviewProducts({ data, showActions }: TablePreviewProps) {
             <TableHead className="w-[100px]">Name</TableHead>
             <TableHead>Price</TableHead>
             <TableHead>Quantity</TableHead>
-            {showActions && <TableHead>Acciones</TableHead>}
+            {showActions && <TableHead>Actions</TableHead>}
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -102,14 +99,14 @@ export function TablePreviewProducts({ data, showActions }: TablePreviewProps) {
                       variant="outline"
                       onClick={() => handleEditProduct(dataFile)}
                     >
-                      Editar
+                      Update
                     </Button>
                     <Button
                       variant="outline"
                       onClick={() => handleDeleteProduct(dataFile.id)}
                       disabled={loading}
                     >
-                      Eliminar
+                      Delete
                     </Button>
                   </div>
                 </TableCell>

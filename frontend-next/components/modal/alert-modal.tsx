@@ -26,8 +26,8 @@ export const AlertModal: React.FC<AlertModalProps> = ({
 
   return (
     <Modal
-      title="Estas seguro?"
-      description="Estas a punto de eliminar un producto."
+      title="Are you sure?"
+      description="This action cannot be undone."
       isOpen={isOpen}
       onClose={onClose}
     >
@@ -37,14 +37,14 @@ export const AlertModal: React.FC<AlertModalProps> = ({
           variant={"outline"}
           onClick={onClose}
         >
-          Cancelar
+          Cancel
         </Button>
         <Button
           disabled={loading}
           onClick={onConfirm}
           variant={"destructive"}
         >
-          Confirmar
+          Delete
         </Button>
       </div>
     </Modal>

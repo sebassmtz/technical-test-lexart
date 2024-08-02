@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import { useMountedModal } from "@/hooks/use-mounted-modal";
-// import EditProductModal from "@/components/modal/edit-product-modal";
-// import AddProductModal from "@/components/modal/add-product-modal";
+import EditProductModal from "@/components/modal/edit-product-modal";
+import AddProductModal from "@/components/modal/add-product-modal";
 
 export const ModalProviders = () => {
   const { isMounted, setIsMounted } = useMountedModal((state) => ({
@@ -19,8 +19,8 @@ export const ModalProviders = () => {
 
   return (
     <>
-      {/* <EditProductModal />
-      <AddProductModal /> */}
+      <EditProductModal />
+      <AddProductModal />
     </>
   );
 };
