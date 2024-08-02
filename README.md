@@ -1,24 +1,20 @@
 ## Technical Test Lexart Documentation
 
-**Desarrollado:** Sebastian Felipe Martinez Samaca
+**Developed by:** Sebastian Felipe Martinez Samaca
 
-**Fecha:** 2024-08-02
+**Date:** 2024-08-02
 
-**Proyecto:** Technical test Fullstack
+**Project:** Technical Test Fullstack
 
-**Palabras Clave:** NodeJS, Express.js, React, Next.js, PostgreSQL, Vercel
+**Keywords:** NodeJS, Express.js, React, Next.js, PostgreSQL, Vercel
 
-**Infraestructura de despliegue:** Vercel y Railway
+**Deployment Infrastructure:** Vercel and Railway
 
-#### Tabla de contenido
+#### Table of Contents
 
 - [Introducción](#introducción)
 - [backend](#backend)
 - [frontend](#frontend)
-- [scrips DB](#scripts-db)
-  - [PostgreSQL](#postgresql)
-  - [SQL Server](#sql-server)
-  - [Mockups frontend](#mockups-frontend)
   - [Porque Nestjs](#porque-nestjs)
   - [Porque Nextjs](#porque-nextjs)
 - [Referencias](#referencias)
@@ -26,56 +22,57 @@
 ## Introducción
 
 > [!IMPORTANT]
-> Link de la documentacion de los endpoints: [Endpoints](https://technical-test-lexart-development.up.railway.app/docs)
+> Documentation link for the endpoints: [Endpoints](https://technical-test-lexart-development.up.railway.app/docs)
+
 
 > [!IMPORTANT]
-> Link del despliegue en Vercel: [Frontend]()
+> Credentials to log in
+> User: jhon.doe@example.com
+> Password: **stringPassword123**
 
-> [!IMPORTANT]
-> Credenciales para ingresar
-> Usuario: jhon.doe@example.com
-> Contraseña: **stringPassword123**
-
-Este proyecto es una prueba técnica para la empresa Fianzas. El proyecto se divide en dos partes, una parte backend y una parte frontend. El backend se desarrolló con Express.js y el frontend con Next.js. La base de datos se utilizó PostgreSQL en Vercel. La infraestructura de despliegue se realizó en Vercel y Railway.
+This project is a technical test for the company Fianzas. The project is divided into two parts: a backend and a frontend. The backend is developed with Express.js, and the frontend with Next.js. PostgreSQL is used as the database in Vercel. The deployment infrastructure is set up on Vercel and Railway.
 
 > [!NOTE]
-> Para el despliegue de la aplicacion se utilizo Vercel y Railway, para el backend y frontend respectivamente.
+> The application was deployed using Vercel and Railway for the backend and frontend, respectively.
 
 ## backend
 
-### Como ejecutar el backend
+### How to run the backend
 
-1. Abrir la terminal y dirigirse a la carpeta backend-node
+1. Open the terminal and navigate to the backend-node folder
 
 ```bash
-cd backend-node
+cd backend-express
 ```
 
-2. Instalar las dependencias con el siguiente comando
+2. Install the dependencies with the following command
 
 ```bash
 npm install
 ```
 
-3. Ejecutar el siguiente comando para iniciar el servidor
+3. Run the following command to start the server
 
 ```bash
-npm run start:dev
+npm run build
+npm run start
 ```
 
-3. Abrir el navegador para ir `http://localhost:3000/docs` para ver la documentacion de los endpoints
+3. Open the browser and go to http://localhost:3000/docs to view the API documentation
 
 ## frontend
 
-### Como ejecutar el frontend
+### How to run the frontend
 
-1. Abrir la terminal y dirigirse a la carpeta frontend-react
+Open the terminal and navigate to the frontend-react folder
+
+1. Install the dependencies with the following command
 
 ```bash
-cd frontend-react
+cd frontend-next
 ```
 
-2. Instalar las dependencias con el siguiente comando
+2. Run the following command to start the server
 
 ```bash
 npm install
@@ -87,33 +84,18 @@ npm install
 npm run dev
 ```
 
-3. Abrir el navegador para ir `http://localhost:3000` para ver la aplicacion
+3. Open the browser and go to http://localhost:3000 to view the application
 
-### Mockups frontend
 
-1. Pagina Principal
+### Why Express.js
 
-![Home](./assets/home.png)
-
-2. Pagina de Dashboard
-
-![Dash](./assets/dash.png)
-
-![Logout](./assets/products.png)
-
-3. Pagina de Productos
-
-![Products](./assets/logout.png)
-
-### Porque Express.js
-
-Express.js es una estructura de aplicación web minimalista y flexible para Node.js que permite construir aplicaciones web y APIs de alto rendimiento. Su simplicidad, modularidad a través de middleware y amplia adopción con una gran comunidad de soporte lo hacen ideal para desarrollar soluciones escalables. Además, su API amigable y compatibilidad con varios motores de plantillas y WebSockets facilitan la creación de aplicaciones dinámicas y en tiempo real.
+Express.js is a minimal and flexible web application framework for Node.js that allows you to build high-performance web applications and APIs. Its simplicity, modularity through middleware, and wide adoption with a large support community make it ideal for developing scalable solutions. Additionally, its user-friendly API and compatibility with various template engines and WebSockets facilitate the creation of dynamic and real-time applications.
 
 ### Porque Nextjs
 
-Nextjs es un framework de React que permite crear aplicaciones web de forma sencilla y rápida. Nextjs es un framework que permite crear aplicaciones web de forma modular, lo que facilita la reutilización de código y la escalabilidad de la aplicación. Además, Nextjs es un framework que permite crear aplicaciones web de forma eficiente, ya que utiliza el concepto de renderizado del lado del servidor.
+Next.js is a React framework that enables the creation of web applications easily and quickly. Next.js allows for the creation of modular web applications, facilitating code reuse and scalability. Additionally, Next.js enables efficient web application development by utilizing server-side rendering.
 
-## Referencias
+## Reference
 
 - [Express.js](https://expressjs.com/)
 - [Next.js](https://nextjs.org/)
