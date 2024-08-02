@@ -50,7 +50,6 @@ export function TablePreviewProducts({ data, showActions }: TablePreviewProps) {
     setIdProduct(id);
   };
 
-
   const deleteProductMutation = useMutation({
     mutationFn: deleteProduct,
     onSuccess: () => {
@@ -58,8 +57,8 @@ export function TablePreviewProducts({ data, showActions }: TablePreviewProps) {
       toast.success("Deleted product successfully.");
       setOpen(false);
       setLoading(false);
-    }
-  })
+    },
+  });
 
   const onDelete = () => {
     setLoading(true);
@@ -102,7 +101,7 @@ export function TablePreviewProducts({ data, showActions }: TablePreviewProps) {
                       Update
                     </Button>
                     <Button
-                      variant="outline"
+                      variant="destructive"
                       onClick={() => handleDeleteProduct(dataFile.id)}
                       disabled={loading}
                     >

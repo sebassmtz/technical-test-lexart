@@ -13,6 +13,7 @@ import {
 import { useStoreAddModal } from "@/hooks/use-store-modal";
 import { AlertModal } from "@/components/modal/alert-modal";
 import { toast } from "sonner";
+import { LoadingModal } from "@/components/modal/loading-modal";
 function ProductPageDash() {
   const { open: openAddModal } = useStoreAddModal((state) => ({
     open: state.open,
@@ -41,16 +42,21 @@ function ProductPageDash() {
     },
   });
 
+  const [loadingLoad, setLoadingLoad] = useState(false);
+
   const loadProductsQuery = useMutation({
     mutationFn: loadProducts,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["products"] });
       toast.success("Loaded products successfully.");
+      setLoadingLoad(false);
     },
   });
 
   const handleProducts = () => {
     queryClient.invalidateQueries({ queryKey: ["products"] });
+    //  Loading true open modal loading
+    setLoadingLoad(true);
     loadProductsQuery.mutate();
   };
 
@@ -70,6 +76,11 @@ function ProductPageDash() {
         onClose={() => setOpen(false)}
         onConfirm={onDelete}
         loading={loading}
+      />
+      <LoadingModal
+        isOpen={loadingLoad}
+        onClose={() => setLoading(false)}
+        loading={loadingLoad}
       />
       <Card className="w-[800px]">
         <CardHeader>
