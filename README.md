@@ -23,6 +23,7 @@
 
 > [!IMPORTANT]
 > Documentation link for the endpoints: [Endpoints](https://technical-test-lexart-development.up.railway.app/docs)
+> Application link: [Application](https://technical-test-lexart.vercel.app/)
 
 
 > [!IMPORTANT]
